@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F4EC">
+<title>밤낮쉼표 — 대구 폭염·열대야 그늘 지도</title>
+<meta name="description" content="대구 가로수·그늘막·무더위쉼터 공공데이터로 만든 폭염·열대야 쉼터 지도 시연 웹">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-mode="day" data-tab="now">
+
+<div class="phone">
+
+  <header class="appbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">쉼</span>
+      <div class="brand-txt">
+        <b>밤낮쉼표</b>
+        <small id="brandSub">대구 폭염 그늘·야간 쉼터 지도</small>
+      </div>
+    </div>
+    <div class="demo-switch" role="group" aria-label="시연 시각 전환">
+      <button type="button" data-scene="day" class="on"><span class="dot"></span>낮 14시</button>
+      <button type="button" data-scene="night"><span class="dot"></span>밤 23시</button>
+    </div>
+  </header>
+
+  <main class="screens">
+
+    <!-- ============ 지금 ============ -->
+    <section class="view is-active" id="view-now" aria-label="지금">
+      <div class="scroll">
+
+        <div class="hero">
+          <svg class="scene scene-day" viewBox="0 0 390 206" aria-hidden="true">
+            <defs>
+              <linearGradient id="daySky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#FFF6E2"/><stop offset=".55" stop-color="#FFE6C6"/><stop offset="1" stop-color="#FBD6AF"/>
+              </linearGradient>
+              <radialGradient id="sunGlow"><stop offset="0" stop-color="#FFD166" stop-opacity=".95"/><stop offset="1" stop-color="#FFB020" stop-opacity="0"/></radialGradient>
+              <linearGradient id="dayGround" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2CFA6"/><stop offset="1" stop-color="#E7BE92"/></linearGradient>
+              <linearGradient id="shadePool" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E7D5B" stop-opacity=".30"/><stop offset="1" stop-color="#2E7D5B" stop-opacity=".04"/></linearGradient>
+            </defs>
+            <rect width="390" height="206" fill="url(#daySky)"/>
+            <circle cx="306" cy="58" r="78" fill="url(#sunGlow)"/>
+            <g class="rays" transform="translate(306 58)">
+              <g stroke="#FFC24A" stroke-width="2.4" stroke-linecap="round" opacity=".55">
+                <line x1="0" y1="-38" x2="0" y2="-50"/><line x1="0" y1="38" x2="0" y2="50"/>
+                <line x1="-38" y1="0" x2="-50" y2="0"/><line x1="38" y1="0" x2="50" y2="0"/>
+                <line x1="-27" y1="-27" x2="-35" y2="-35"/><line x1="27" y1="-27" x2="35" y2="-35"/>
+                <line x1="-27" y1="27" x2="-35" y2="35"/><line x1="27" y1="27" x2="35" y2="35"/>
+              </g>
+            </g>
+            <circle cx="306" cy="58" r="25" fill="#FFC24A"/>
+            <circle cx="306" cy="58" r="25" fill="none" stroke="#FFDB93" stroke-width="1.2"/>
+
+            <g opacity=".5" fill="#E4B78C">
+              <rect x="18" y="112" width="30" height="62" rx="4"/><rect x="54" y="96" width="22" height="78" rx="4"/>
+              <rect x="82" y="122" width="26" height="52" rx="4"/><rect x="112" y="104" width="18" height="70" rx="4"/>
+              <rect x="196" y="118" width="24" height="56" rx="4"/><rect x="226" y="102" width="18" height="72" rx="4"/>
+              <rect x="250" y="126" width="30" height="48" rx="4"/><rect x="286" y="110" width="20" height="64" rx="4"/>
+              <rect x="312" y="130" width="26" height="44" rx="4"/><rect x="344" y="118" width="30" height="56" rx="4"/>
+            </g>
+            <rect y="172" width="390" height="34" fill="url(#dayGround)"/>
+            <path d="M0 173 H390" stroke="#E2B285" stroke-width="1"/>
+
+            <ellipse cx="285" cy="176" rx="96" ry="15" fill="url(#shadePool)"/>
+            <ellipse cx="238" cy="180" rx="52" ry="9" fill="url(#shadePool)" opacity=".8"/>
+
+            <g class="tree">
+              <rect x="270" y="132" width="7" height="44" rx="3" fill="#8A5A38"/>
+              <path d="M273 140 l-14 -12" stroke="#8A5A38" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="262" cy="118" r="26" fill="#2E7D5B"/><circle cx="294" cy="112" r="30" fill="#358C66"/>
+              <circle cx="280" cy="96" r="22" fill="#3E9A72"/><circle cx="248" cy="104" r="18" fill="#2F8760"/>
+            </g>
+            <g class="tree tree-2">
+              <rect x="330" y="150" width="6" height="28" rx="3" fill="#8A5A38"/>
+              <circle cx="324" cy="140" r="17" fill="#2F8760"/><circle cx="342" cy="136" r="19" fill="#3E9A72"/>
+              <circle cx="332" cy="126" r="14" fill="#4AA87F"/>
+            </g>
+
+            <g class="heat" stroke="#FFFFFF" stroke-width="1.6" fill="none" opacity=".55" stroke-linecap="round">
+              <path d="M40 190 q8 -6 16 0 t16 0"/><path d="M150 196 q8 -6 16 0 t16 0"/>
+              <path d="M280 190 q8 -6 16 0 t16 0"/>
+            </g>
+          </svg>
+
+          <svg class="scene scene-night" viewBox="0 0 390 206" aria-hidden="true">
+            <defs>
+              <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#070E22"/><stop offset=".5" stop-color="#141C3C"/><stop offset="1" stop-color="#2A1E42"/>
+              </linearGradient>
+              <radialGradient id="moonGlow"><stop offset="0" stop-color="#F7E9B8" stop-opacity=".55"/><stop offset="1" stop-color="#F7E9B8" stop-opacity="0"/></radialGradient>
+              <radialGradient id="lampGlow"><stop offset="0" stop-color="#FFC978" stop-opacity=".55"/><stop offset="1" stop-color="#FFC978" stop-opacity="0"/></radialGradient>
+              <linearGradient id="nightGround" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101A31"/><stop offset="1" stop-color="#0A1120"/></linearGradient>
+            </defs>
+            <rect width="390" height="206" fill="url(#nightSky)"/>
+            <g class="stars" fill="#EAF0FF">
+              <circle cx="42" cy="34" r="1.5"/><circle cx="86" cy="62" r="1.1"/><circle cx="122" cy="28" r="1.7"/>
+              <circle cx="168" cy="52" r="1.2"/><circle cx="206" cy="24" r="1.4"/><circle cx="252" cy="46" r="1"/>
+              <circle cx="300" cy="26" r="1.3"/><circle cx="342" cy="60" r="1.6"/><circle cx="366" cy="34" r="1.1"/>
+              <circle cx="64" cy="96" r="1.1"/><circle cx="146" cy="86" r="1.3"/><circle cx="326" cy="100" r="1.2"/>
+            </g>
+            <circle cx="300" cy="56" r="58" fill="url(#moonGlow)"/>
+            <circle cx="300" cy="56" r="20" fill="#F7E9B8"/>
+            <circle cx="309" cy="49" r="17" fill="#141C3C"/>
+
+            <g fill="#0C1428">
+              <rect x="18" y="118" width="34" height="58" rx="3"/><rect x="56" y="102" width="24" height="74" rx="3"/>
+              <rect x="84" y="128" width="30" height="48" rx="3"/><rect x="118" y="110" width="20" height="66" rx="3"/>
+              <rect x="196" y="124" width="26" height="52" rx="3"/><rect x="226" y="108" width="20" height="68" rx="3"/>
+              <rect x="250" y="132" width="32" height="44" rx="3"/><rect x="288" y="116" width="22" height="60" rx="3"/>
+              <rect x="314" y="136" width="28" height="40" rx="3"/><rect x="346" y="124" width="30" height="52" rx="3"/>
+            </g>
+            <g class="windows" fill="#FFC978">
+              <rect x="24" y="126" width="6" height="7" rx="1"/><rect x="36" y="126" width="6" height="7" rx="1"/>
+              <rect x="24" y="142" width="6" height="7" rx="1"/><rect x="62" y="112" width="6" height="7" rx="1"/>
+              <rect x="62" y="128" width="6" height="7" rx="1"/><rect x="92" y="138" width="6" height="7" rx="1"/>
+              <rect x="104" y="138" width="6" height="7" rx="1"/><rect x="124" y="120" width="6" height="8" rx="1"/>
+              <rect x="232" y="118" width="6" height="7" rx="1"/><rect x="258" y="142" width="6" height="7" rx="1"/>
+              <rect x="270" y="142" width="6" height="7" rx="1"/><rect x="294" y="126" width="6" height="7" rx="1"/>
+              <rect x="320" y="146" width="6" height="7" rx="1"/><rect x="332" y="146" width="6" height="7" rx="1"/>
+              <rect x="352" y="134" width="6" height="7" rx="1"/><rect x="364" y="150" width="6" height="7" rx="1"/>
+            </g>
+
+            <rect y="174" width="390" height="32" fill="url(#nightGround)"/>
+            <path d="M0 175 H390" stroke="#22304E" stroke-width="1"/>
+
+            <g class="lamp">
+              <circle cx="336" cy="150" r="46" fill="url(#lampGlow)"/>
+              <rect x="334" y="118" width="3" height="58" fill="#3A4A6B"/>
+              <circle cx="335.5" cy="114" r="9" fill="#FFD79A"/>
+              <path d="M306 186 q30 -30 60 0 z" fill="#FFC978" opacity=".12"/>
+            </g>
+            <g class="tree-night">
+              <rect x="268" y="140" width="6" height="36" rx="3" fill="#1B2740"/>
+              <circle cx="262" cy="130" r="21" fill="#0E1B2E"/><circle cx="280" cy="126" r="24" fill="#122036"/>
+              <circle cx="270" cy="112" r="16" fill="#16273F"/>
+            </g>
+            <g stroke="#57D2C1" stroke-width="1.4" fill="none" opacity=".5" stroke-linecap="round" class="heat-night">
+              <path d="M240 192 q8 -5 16 0 t16 0"/><path d="M300 194 q8 -5 16 0 t16 0"/>
+            </g>
+          </svg>
+
+          <div class="hero-body">
+            <div class="hero-top">
+              <span class="chip chip-cond" id="heroCond">폭염주의보</span>
+              <span class="chip chip-ghost" id="heroTime">11월 17일 · 14:00</span>
+            </div>
+            <div class="hero-temp"><b id="heroTemp">36.2</b><span>°C</span></div>
+            <p class="hero-line" id="heroLine">아스팔트는 52°C까지 오릅니다. 걸어서 갈 수 있는 그늘이 필요합니다.</p>
+            <div class="hero-chips" id="heroFacts">
+              <span>체감 38.4°</span><span>습도 61%</span><span>폭염일수 54일</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="loc-row">
+          <span class="loc-label">시연 위치</span>
+          <div class="loc-chips" id="locChips"></div>
+        </div>
+
+        <section class="block">
+          <div class="block-head">
+            <h2 id="nowTitle">지금 걸어갈 만한 그늘</h2>
+            <span class="block-sub" id="nowSub">반경 1.2km · 그늘 점수순</span>
+          </div>
+          <div class="cards" id="nowList"></div>
+          <p class="footnote" id="nowNote"></p>
+        </section>
+
+        <section class="block">
+          <div class="block-head">
+            <h2>대구 지금 숫자</h2>
+            <span class="block-sub">공공데이터 원본 집계</span>
+          </div>
+          <div class="metrics" id="metrics"></div>
+        </section>
+
+        <p class="data-line">가로수 기준일 2022-12-09 · 쉼터 2026년 지정 · 그늘막 2026-08-10 · 실시간 기상 아님</p>
+      </div>
+    </section>
+
+    <!-- ============ 지도 ============ -->
+    <section class="view" id="view-map" aria-label="지도">
+      <div class="map-wrap">
+        <div id="map" class="map"></div>
+        <div class="night-scrim"></div>
+        <div class="map-top">
+          <div class="layer-chips" id="layerChips"></div>
+        </div>
+        <div class="map-bottom">
+          <div class="map-row">
+            <div class="map-legend" id="mapLegend"></div>
+            <button type="button" id="mapRecenter" class="map-btn">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+              <span id="mapLocName">범어동</span>
+            </button>
+          </div>
+          <div class="route-panel" id="routePanel"></div>
+        </div>
+        <div class="offline-note" id="offlineNote" hidden>오프라인 — 배경지도 없이 데이터만 표시 중</div>
+      </div>
+    </section>
+
+    <!-- ============ 사각지대 ============ -->
+    <section class="view" id="view-gap" aria-label="사각지대">
+      <div class="scroll">
+        <div class="page-head">
+          <h1>데이터가 보여준 세 가지 사각지대</h1>
+          <p>실측 원본에서 바로 나온 숫자만 썼습니다. 추정·가정은 표시했습니다.</p>
+        </div>
+
+        <article class="insight">
+          <div class="insight-kicker"><span>01</span> 그늘 사각지대</div>
+          <div class="insight-num">154<small>곳</small></div>
+          <p class="insight-title">100m 안에 가로수가 한 그루도 없는 무더위쉼터</p>
+          <p class="insight-desc">가로수 데이터가 있는 6개 구의 쉼터 582곳 가운데 26.5%입니다. 쉼터는 있는데, 그 쉼터까지 걸어갈 그늘이 없는 셈입니다.</p>
+          <div class="chart" id="chartGu"></div>
+          <p class="chart-cap">구별 100m 내 가로수 0그루 쉼터 (막대 = 비율, 괄호 = 곳)</p>
+        </article>
+
+        <article class="insight">
+          <div class="insight-kicker"><span>02</span> 야간 사각지대</div>
+          <div class="insight-num">0.9<small>%</small></div>
+          <p class="insight-title">22시 이후까지 문을 여는 쉼터는 1,199곳 중 11곳</p>
+          <p class="insight-desc">밤 23시에는 6곳만 남습니다. 나머지 쉼터 1,063곳(88.7%)은 야간 개방 시설까지 도보 10분(800m) 안에 없습니다.</p>
+          <div class="chart" id="chartHours"></div>
+          <p class="chart-cap">시간대별 문 열린 쉼터 수 (운영시간 원본 기준)</p>
+        </article>
+
+        <article class="insight">
+          <div class="insight-kicker"><span>03</span> 데이터 사각지대</div>
+          <div class="insight-num two">135<small>vs</small>224</div>
+          <p class="insight-title">같은 수성구인데 시 목록과 구 대장이 다릅니다</p>
+          <p class="insight-desc">시 본청 공개 목록은 135곳, 수성구 자체 대장은 224곳. 구 대장은 냉방 보유 134곳·미보유 90곳, 야간 운영은 전부 ‘N’입니다. 시 목록은 같은 구에서 야간 운영 4곳을 표시합니다.</p>
+          <div class="chart" id="chartSu"></div>
+          <p class="chart-cap">같은 구, 다른 대장 — 공개 데이터 간 불일치</p>
+        </article>
+
+        <section class="block">
+          <div class="block-head">
+            <h2>야간 개방 후보 5곳</h2>
+            <span class="block-sub">점수 = 유형·냉방기·수용인원·공백거리·밀도</span>
+          </div>
+          <div class="rank" id="candRank"></div>
+          <p class="footnote">가중치 합산 규칙으로 계산한 후보입니다(학습 모델 아님). 실제 개방 여부는 미확정이며, 시·구 협의 대상입니다.</p>
+        </section>
+
+        <p class="data-line">출처: 대구광역시 가로수정보·무더위쉼터 목록·수성구 그늘막 및 쉼터 대장 (붙임 5 참조)</p>
+      </div>
+    </section>
+
+    <!-- ============ 안내 ============ -->
+    <section class="view" id="view-info" aria-label="안내">
+      <div class="scroll">
+        <div class="page-head">
+          <h1>이 화면은 시연용 웹입니다</h1>
+          <p>같은 데이터와 화면을 iOS·Android 네이티브 앱으로 옮기는 것이 다음 단계입니다.</p>
+        </div>
+
+        <section class="block">
+          <div class="block-head"><h2>앱 전환 로드맵</h2></div>
+          <ol class="road">
+            <li class="done"><b>1단계 · 지금</b><p>공공데이터 정제 + 시연 웹. 가로수 107,144그루를 200m 격자 그늘 밀도로 경량화해 모바일에서 바로 뜁니다.</p></li>
+            <li><b>2단계 · 앱</b><p>React Native로 전환. 폭염특보 푸시, GPS 기반 그늘 경로 안내, 야간 개방 실시간 갱신.</p></li>
+            <li><b>3단계 · 정책</b><p>야간 개방 후보를 구·동 담당자 화면으로 제공. 개방 실적이 다시 데이터로 쌓이는 구조.</p></li>
+          </ol>
+        </section>
+
+        <section class="block">
+          <div class="block-head"><h2>앱에서 달라지는 것</h2></div>
+          <ul class="feature">
+            <li><span class="fi">🔔</span><div><b>폭염특보·열대야 알림</b><p>기상청 특보를 받아 “지금 문 연 쉼터”를 바로 띄웁니다.</p></div></li>
+            <li><span class="fi">🧭</span><div><b>그늘 경로</b><p>가로수 격자와 그늘막을 비용으로 둔 경로 탐색. 100m 더 걸어도 그늘로.</p></div></li>
+            <li><span class="fi">🌙</span><div><b>야간 개방 지도</b><p>22시 이후 운영 여부를 실시간으로 갱신, 닫힌 곳은 즉시 흐리게.</p></div></li>
+            <li><span class="fi">🧾</span><div><b>데이터 신고</b><p>현장과 다른 정보를 시민이 제보하면 대장에 반영 요청.</p></div></li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <div class="block-head"><h2>쓴 공공데이터</h2><span class="block-sub">전부 로그인 없이 내려받음</span></div>
+          <ul class="src" id="srcList"></ul>
+        </section>
+
+        <section class="block">
+          <div class="block-head"><h2>정직하게 밝혀둡니다</h2></div>
+          <ul class="limits">
+            <li>가로수 데이터는 <b>2022-12-09 기준</b>이고 6개 구만 있습니다. 군위군은 지도에서 <b>‘데이터 없음’</b>으로 표시합니다.</li>
+            <li>달서구·달성군은 개별 나무가 아니라 <b>가로수길 구간</b> 자료입니다(292구간). 그늘 비율 계산에만 쓰고, 지도에는 선을 그리지 않았습니다(직선 구간이라 지도에서 인위적으로 보여서).</li>
+            <li>수성구 그늘막 128곳은 좌표가 없어 주소로 지오코딩했습니다. <b>건물 단위 27곳</b>, <b>도로 중심선 기준 53곳</b>, <b>미매칭 48곳</b>입니다.</li>
+            <li>야간 후보 점수는 사람이 정한 가중치 합산입니다. AI 학습 모델이 아닙니다. 후보는 <b>공공시설·특정계층이용시설(경로당)</b>만 대상으로 했습니다 — 24시 편의점·지하철역 좌표 데이터는 이번에 확보하지 못해 빠졌습니다.</li>
+            <li>지도의 <b>그늘 띠</b>는 6개 구 가로수 107,144그루 좌표를 흐리게 이어 붙인 그림입니다. 달서구·달성군은 개별 나무 좌표가 없어 띠가 비어 있습니다. <b>경로 두 개</b>는 OSM 보행로를 따르며, 그늘 비율은 그 좌표로 계산한 <b>추정치</b>입니다 — 수관 폭·시간대·건물 그림자는 반영하지 않아 현장과 다를 수 있습니다.</li>
+            <li>폰트는 기기 기본 서체, 지도 타일은 OpenStreetMap을 씁니다. 상업용 무료·오픈소스만 사용했습니다. 타일이 안 뜨는 환경(오프라인)에서는 배경지도 없이 데이터 레이어만 그립니다.</li>
+          </ul>
+        </section>
+
+        <p class="data-line">밤낮쉼표 · 2026 대구광역시 기후·환경·탄소중립 공공데이터 AI 활용대회 출품 시연본</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" aria-label="주요 화면">
+    <button type="button" class="tab on" data-tab="now">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11.2 12 4l8 7.2V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
+      <span>지금</span>
+    </button>
+    <button type="button" class="tab" data-tab="map">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg>
+      <span>지도</span>
+    </button>
+    <button type="button" class="tab" data-tab="gap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M9.6 19V5M15.2 19v-7M20.8 19v-4"/></svg>
+      <span>사각지대</span>
+    </button>
+    <button type="button" class="tab" data-tab="info">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v6M12 7.6v.6"/></svg>
+      <span>안내</span>
+    </button>
+  </nav>
+
+</div>
+
+<div class="sheet" id="sheet" hidden aria-hidden="true">
+  <div class="sheet-grip"></div>
+  <div class="sheet-body" id="sheetBody"></div>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="data/bundle.js"></script>
+<script src="data/raster.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
