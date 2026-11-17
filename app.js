@@ -240,7 +240,7 @@
     $$('.demo-switch button').forEach(function (b) { b.classList.toggle('on', b.dataset.scene === mode); });
     var tc = document.querySelector('meta[name="theme-color"]');
     if (tc) tc.setAttribute('content', mode === 'day' ? '#F7F4EC' : '#070B16');
-    $('#brandSub').textContent = mode === 'day' ? '대구 폭염 그늘 지도' : '대구 열대야 야간 쉼터 지도';
+    $('#brandSub').textContent = mode === 'day' ? '부문1 기획 시연 데모 · 낮' : '부문1 기획 시연 데모 · 밤';
     renderHero(); renderNow(); renderMetrics();
     state.routeSel = null;
     if (state.mapReady) {
